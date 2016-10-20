@@ -16,20 +16,20 @@ module.exports = {
     /**
 	 * Create a volume slider.
 	 */
-	createVolumeSlider : function(originx,originy,width,height) {
+	createVolume : function(originx,originy,width,height) {
 		exec(null, null, "VolumeSlider","createVolumeSlider", [originx, originy, width, height]);
 	},
 	
 	/**
 	 * Show the volume slider
 	 */
-	showVolumeSlider : function() {
-		exec(null, null, "VolumeSlider","showVolumeSlider", []);
+	showVolume : function(enableRoute, enableSlider) {
+		exec(null, null, "VolumeSlider","showVolumeSlider", [enableRoute, enableSlider]);
 	},
 	/**
 	 * Hide the volume slider
 	 */
-	hideVolumeSlider : function() {
+	hideVolume : function() {
 		exec(null, null, "VolumeSlider","hideVolumeSlider", []);
 	}
 };

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="org.devgeeks.volumeslider"
-        version="1.0.0">
+        id="cordova-plugin-volume"
+        version="2.0.0">
 
-    <name>VolumeSlider</name>
+    <name>Native Volume</name>
 
     <description>Show a volume slider to change the volume of the app without the physical buttons</description>
     <keywords>volume, slider, change, set, sound, ios</keywords>
@@ -16,8 +16,8 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-    <js-module src="www/VolumeSlider.js" name="VolumeSlider">
-        <clobbers target="plugins.volumeSlider" />
+    <js-module src="www/VolumeSlider.js" name="volume">
+        <clobbers target="cordova.plugins.volume" />
     </js-module>
 
     <!-- ios -->

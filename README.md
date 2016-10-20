@@ -37,6 +37,9 @@ function onDeviceReady()
 volumeSlider.hideVolumeSlider();
 ```
 
+customise the airplay images in the resources folder to suit your app colors.
+you will have to manually add them to your app through xcode, images.xcassets, import each folder.
+
 
 ## License
 

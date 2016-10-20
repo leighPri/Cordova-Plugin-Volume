@@ -35,13 +35,13 @@
 
 	self.callbackId = command.callbackId;
 	NSUInteger argc = [arguments count];
-
+	
 	if (argc < 3) { // at a minimum we need x origin, y origin and width...
 		return;
 	}
 
 	if (self.mpVolumeViewParentView != NULL) {
-			return;//already created, don't need to create it again
+			return; //already created, don't need to create it again
 	}
 
 	CGFloat originx,originy,width;
@@ -49,7 +49,7 @@
 
 	originx = [[arguments objectAtIndex:0] floatValue];
 	originy = [[arguments objectAtIndex:1] floatValue];
-	width = [[arguments objectAtIndex:2] floatValue];
+	width 	= [[arguments objectAtIndex:2] floatValue];
 	if (argc > 3) {
 		height = [[arguments objectAtIndex:3] floatValue];
 	}
@@ -66,6 +66,9 @@
 
 	mpVolumeViewParentView.backgroundColor = [UIColor clearColor];
 	self.myVolumeView = [[MPVolumeView alloc] initWithFrame: mpVolumeViewParentView.bounds];
+	[self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplay"] forState:UIControlStateNormal];
+    [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayActive"] forState:UIControlStateHighlighted];
+    [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayActive"] forState:UIControlStateSelected];
 	[mpVolumeViewParentView addSubview: myVolumeView];
 	self.myVolumeView.showsVolumeSlider = NO;
 	self.myVolumeView.showsRouteButton = NO;
@@ -73,7 +76,20 @@
 
 - (void)showVolumeSlider:(CDVInvokedUrlCommand *)command
 {
-	self.myVolumeView.showsVolumeSlider = YES;
+	BOOL enableRoute = [[command.arguments objectAtIndex:0] boolValue];
+	BOOL enableSlider = [[command.arguments objectAtIndex:1] boolValue];
+
+	if(enableSlider){
+		self.myVolumeView.showsVolumeSlider = YES;
+	} else {
+		self.myVolumeView.showsVolumeSlider = NO;
+	}
+	if(enableRoute){
+		self.myVolumeView.showsRouteButton = YES;
+	} else {
+		self.myVolumeView.showsRouteButton = NO;
+	}
+
 	self.mpVolumeViewParentView.hidden = NO;
 }
 
@@ -81,8 +97,7 @@
 {
 	self.mpVolumeViewParentView.hidden = YES;
 	self.myVolumeView.showsVolumeSlider = NO;
+	self.myVolumeView.showsRouteButton = NO;
 }
-
-
 
 @end
