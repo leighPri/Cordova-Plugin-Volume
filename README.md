@@ -2,10 +2,15 @@ VolumeSlider
 ============
 
 *Updated for Cordova 3.0+ include 4.0+ compatibility
+
 *Renamed as cordova-plugin-volume
+
 *Add options to show volumeslider only, airplay route selector only or both
+
 *Add option for color to create.  Color can be white or black and sets the default color for the route select button
+
 *Add images for white / black / active airplay icon.  Feel free to customise to your colors
+
 
 Installation
 ------------
@@ -43,7 +48,7 @@ function onDeviceReady()
 volumeSlider.hideVolumeSlider();
 ```
 
-... I suggest using some method to get the current size of your display and then using an offset from these values to position the volume bar as this will allow you to maintain a consistent offset from the bottom of the screen, top of the screen etc regardless of the screen size.
+I suggest using some method to get the current size of your display and then using an offset from these values to position the volume bar as this will allow you to maintain a consistent offset from the bottom of the screen, top of the screen etc regardless of the screen size.
 
 ## License
 
