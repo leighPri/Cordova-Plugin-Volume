@@ -16,8 +16,8 @@ module.exports = {
     /**
 	 * Create a volume slider.
 	 */
-	createVolume : function(originx,originy,width,height) {
-		exec(null, null, "VolumeSlider","createVolumeSlider", [originx, originy, width, height]);
+	createVolume : function(originx,originy,width,height, color) {
+		exec(null, null, "VolumeSlider","createVolumeSlider", [originx, originy, width, height, color]);
 	},
 	
 	/**

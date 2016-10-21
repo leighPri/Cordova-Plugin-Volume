@@ -10,7 +10,7 @@ PhoneGap / Cordova iOS plugin that allows you to add a native volume slider (MPV
 
 Add the plugin much like any other:
 
-### For Cordova 3.0.x:
+### For Cordova >3.0.x:
 
 1. To add this plugin use one of the below: 
 	- `cordova plugin add https://github.com/devgeeks/VolumeSlider.git` or 
@@ -18,6 +18,10 @@ Add the plugin much like any other:
 2. To remove this plugin use one of the below: 
 	- `cordova plugin remove org.devgeeks.volumeslider`
 	- `phonegap local plugin remove org.devgeeks.volumeslider`
+3. To add the custom images for route button
+	- open xcode, go to resources > Images.xcassets
+	- choose import and select all 3 folders under resources included with this plugin
+	- if you edit the source images or remove the ios platform you will need to add them again
 
 ### NOTE: The iOS Simulator does not show MPVolumeViews. To see the slider you have to be running on an actual device.
 
@@ -25,9 +29,9 @@ Add the plugin much like any other:
 ```javascript
 function onDeviceReady()
 {
-	var volumeSlider = window.plugins.volumeSlider;
-	volumeSlider.createVolumeSlider(10,350,300,30); // origin x, origin y, width, height
-	volumeSlider.showVolumeSlider();
+	var volumeSlider = cordova.plugins.volume;
+	volumeSlider.createVolume(10,350,300,30, "black"); // origin x, origin y, width, height, color ("black" or "white" only affects airplay route button)
+	volumeSlider.showVolume(true, true); // show volume slider, show airplay route button
 }
 ```
 
@@ -36,10 +40,6 @@ function onDeviceReady()
 ```javascript
 volumeSlider.hideVolumeSlider();
 ```
-
-customise the airplay images in the resources folder to suit your app colors.
-you will have to manually add them to your app through xcode, images.xcassets, import each folder.
-
 
 ## License
 

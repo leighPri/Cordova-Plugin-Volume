@@ -32,6 +32,7 @@
 - (void) createVolumeSlider:(CDVInvokedUrlCommand *)command
 {
 	NSArray* arguments = [command arguments];
+	NSString *color = @"default";
 
 	self.callbackId = command.callbackId;
 	NSUInteger argc = [arguments count];
@@ -53,6 +54,9 @@
 	if (argc > 3) {
 		height = [[arguments objectAtIndex:3] floatValue];
 	}
+	if (argc > 4) {
+        color = [arguments objectAtIndex:4];
+    }
 
 	CGRect viewRect = CGRectMake(
 								 originx,
@@ -60,15 +64,26 @@
 								 width,
 								 height
 								 );
+
 	self.mpVolumeViewParentView = [[UIView alloc] initWithFrame:viewRect];
 
 	[self.webView.superview addSubview:mpVolumeViewParentView];
 
 	mpVolumeViewParentView.backgroundColor = [UIColor clearColor];
 	self.myVolumeView = [[MPVolumeView alloc] initWithFrame: mpVolumeViewParentView.bounds];
-	[self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplay"] forState:UIControlStateNormal];
-    [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayActive"] forState:UIControlStateHighlighted];
-    [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayActive"] forState:UIControlStateSelected];
+    if([color isEqual: @"default"]){
+        //nothing to do
+    }
+    if([color isEqual: @"white"]){
+        [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplaywhite"] forState:UIControlStateNormal];
+        [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayprimary"] forState:UIControlStateHighlighted];
+        [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayprimary"] forState:UIControlStateSelected];
+    }
+    if([color isEqual: @"black"]){
+        [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplay"] forState:UIControlStateNormal];
+        [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayprimary"] forState:UIControlStateHighlighted];
+        [self.myVolumeView setRouteButtonImage:[UIImage imageNamed:@"icon-airplayprimary"] forState:UIControlStateSelected];
+    }
 	[mpVolumeViewParentView addSubview: myVolumeView];
 	self.myVolumeView.showsVolumeSlider = NO;
 	self.myVolumeView.showsRouteButton = NO;
