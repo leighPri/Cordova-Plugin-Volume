@@ -1,7 +1,11 @@
 VolumeSlider
 ============
 
-*Updated for Cordova 3.0* by [@orbitaloop](https://github.com/orbitaloop)
+*Updated for Cordova 3.0+ include 4.0+ compatibility
+*Renamed as cordova-plugin-volume
+*Add options to show volumeslider only, airplay route selector only or both
+*Add option for color to create.  Color can be white or black and sets the default color for the route select button
+*Add images for white / black / active airplay icon.  Feel free to customise to your colors
 
 Installation
 ------------
@@ -13,15 +17,13 @@ Add the plugin much like any other:
 ### For Cordova >3.0.x:
 
 1. To add this plugin use one of the below: 
-	- `cordova plugin add https://github.com/devgeeks/VolumeSlider.git` or 
-	- `phonegap local plugin add https://github.com/devgeeks/VolumeSlider.git`
+	- `cordova plugin add https://github.com/ghenry22/Cordova-Plugin-Volume.git`
 2. To remove this plugin use one of the below: 
-	- `cordova plugin remove org.devgeeks.volumeslider`
-	- `phonegap local plugin remove org.devgeeks.volumeslider`
+	- `cordova plugin remove cordova-plugin-volume`
 3. To add the custom images for route button
-	- open xcode, go to resources > Images.xcassets
-	- choose import and select all 3 folders under resources included with this plugin
-	- if you edit the source images or remove the ios platform you will need to add them again
+	- `open xcode, go to resources > Images.xcassets`
+	- `choose import and select all 3 folders under resources included with this plugin`
+	- `if you edit the source images or remove the ios platform you will need to add them again`
 
 ### NOTE: The iOS Simulator does not show MPVolumeViews. To see the slider you have to be running on an actual device.
 
@@ -40,6 +42,8 @@ function onDeviceReady()
 ```javascript
 volumeSlider.hideVolumeSlider();
 ```
+
+... I suggest using some method to get the current size of your display and then using an offset from these values to position the volume bar as this will allow you to maintain a consistent offset from the bottom of the screen, top of the screen etc regardless of the screen size.
 
 ## License
 
