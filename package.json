@@ -1,0 +1,33 @@
+{
+  "name": "cordova-plugin-volume",
+  "version": "2.0.1",
+  "description": "Cordova plugin for displaying native volume control & remote output picker on iOS",
+  "cordova": {
+    "id": "cordova-plugin-volume",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghenry22/cordova-plugin-volume"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "volume",
+    "airplay"
+  ],
+  "engines": [
+    {
+      "name": "cordova-ios",
+      "version": ">=3.8.0"
+    }
+  ],
+  "author": "Gaven Henry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghenry22/cordova-plugin-volume"
+  },
+  "homepage": "https://github.com/ghenry22/cordova-plugin-volume#readme"
+}
